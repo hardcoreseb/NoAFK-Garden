@@ -1,0 +1,44 @@
+{
+  "name": "NoAFK Garden",
+  "description": "Magic Garden Extension for AFK protection - leave the tab open and focus on your other tasks without having to worry about your progress.",
+  "version": "1.0",
+  "manifest_version": 3,
+  
+  "permissions": ["scripting", "tabs", "storage"],
+
+  "host_permissions": [
+    "https://magicgarden.gg/*",
+    "http://magicgarden.gg/*"
+  ],
+  
+  "content_scripts": [
+    {
+      "matches": ["https://magicgarden.gg/*", "http://magicgarden.gg/*"],
+      "js": ["scripts/content.js"],
+      "run_at": "document_start",
+      "world": "MAIN",
+      "all_frames": true
+    }
+  ],
+
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+        "16": "images/icon-16.png",
+        "32": "images/icon-32.png",
+        "48": "images/icon-48.png",
+        "128": "images/icon-128.png"
+    }
+  },
+  
+  "background": {
+    "service_worker": "background.js"
+  },
+
+  "icons": {
+    "16": "images/icon-16.png",
+    "32": "images/icon-32.png",
+    "48": "images/icon-48.png",
+    "128": "images/icon-128.png"
+  }
+}
